@@ -55,13 +55,6 @@ return [
             'visibility' => 'public',
         ],
 
-        'guest-picture' => [
-          'driver' => 'local',
-          'root' => storage_path('app/public/guest-picture'),
-          'url' => env('APP_URL').'/guest-picture',
-          'visibility' => 'public',
-        ],
-
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

@@ -23,5 +23,6 @@ Route::get('/picture', 'AdminController@picture')->name('picture');
 
 Route::get('/guest', 'GuestsController@list')->name('guest');
 Route::get('/guest/random', 'GuestsController@random')->name('guest.random');
+Route::get('/guest/{id}/p', 'GuestsController@picture')->name('guest.picture');
 Route::get('/guest/{id}/delete}', 'GuestsController@destroy')->name('guest.delete');
 Route::post('/guest/add', 'GuestsController@add')->name('guest.add');

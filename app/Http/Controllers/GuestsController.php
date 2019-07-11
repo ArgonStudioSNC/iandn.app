@@ -17,7 +17,7 @@ class GuestsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'random']);
+        $this->middleware('auth', ['except' => ['random', 'picture',]]);
     }
 
     /**
@@ -36,10 +36,17 @@ class GuestsController extends Controller
         return Guest::inRandomOrder()->get()->first()->toJson();
     }
 
+    public function picture($id)
+    {
+        $guest = Guest::find($id);
+        return response(Storage::disk('public')->get($guest->picture_path))
+          ->header('Content-Type', 'image');
+    }
+
     public function destroy($id)
     {
         $guest = Guest::find($id);
-        Storage::disk('guest-picture')->delete($guest->picture_path.'.'.$guest->extension);
+        Storage::disk('public')->delete($guest->picture_path);
         Guest::destroy($id);
 
         return redirect('/guest');
@@ -60,16 +67,11 @@ class GuestsController extends Controller
         ]);
 
         $img = $request->file('picture');
-        $extension = $img->getClientOriginalExtension();
-        $img_name = substr(md5(rand()), 0, 10);
-
-        Storage::disk('guest-picture')->put($img_name.'.'.$extension, File::get($img));
 
         $guest = new Guest();
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
-        $guest->picture_path = $img_name;
-        $guest->extension = $extension;
+        $guest->picture_path = Storage::disk('public')->putFile('/pictures/guest', $img);
         $guest->save();
 
         return redirect('/guest');

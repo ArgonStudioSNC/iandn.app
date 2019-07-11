@@ -17,8 +17,7 @@ class CreateGuestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('fullname');
             $table->text('description');
-            $table->char('picture_path', 10);
-            $table->char('extension');
+            $table->char('picture_path');
             $table->timestamps();
         });
     }

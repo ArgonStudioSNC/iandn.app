@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="col-md-2">
-                      <img src="{{ asset('/guest-picture/'.$guest->picture_path.'.'.$guest->extension) }}" style="max-height:80px"></img>
+                      <img src="{{ asset('/storage/'.$guest->picture_path) }}" style="max-height:80px"></img>
                     </div>
                 </div>
               </div>

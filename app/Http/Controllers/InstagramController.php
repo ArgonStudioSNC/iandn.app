@@ -81,7 +81,7 @@ class InstagramController extends Controller
         $post = new Post();
         $post->username = $request->username;
         $post->comment = $request->comment;
-        $post->picture_id = $hash.'.jpg';
+        $post->picture_name = $hash.'.jpg';
         $post->save();
 
         return redirect('/instagram');
@@ -96,7 +96,7 @@ class InstagramController extends Controller
     {
         $post = Post::find($id);
         if ($res != 'thumb') $res = 'full';
-        return response(Storage::disk('instagram')->get($res.'/'.$post->picture_id))
+        return response(Storage::disk('instagram')->get($res.'/'.$post->picture_name))
           ->header('Content-Type', 'image');
     }
 
@@ -108,8 +108,8 @@ class InstagramController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        Storage::disk('instagram')->delete('thumb/'.$post->picture_id);
-        Storage::disk('instagram')->delete('full/'.$post->picture_id);
+        Storage::disk('instagram')->delete('thumb/'.$post->picture_name);
+        Storage::disk('instagram')->delete('full/'.$post->picture_name);
         Post::destroy($id);
 
         return redirect('/instagram');

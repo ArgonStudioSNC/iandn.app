@@ -40,14 +40,14 @@ class GuestsController extends Controller
     public function picture($id)
     {
         $guest = Guest::find($id);
-        return response(Storage::disk('guest')->get($guest->picture_path))
+        return response(Storage::disk('guest')->get($guest->picture_name))
           ->header('Content-Type', 'image');
     }
 
     public function destroy($id)
     {
         $guest = Guest::find($id);
-        Storage::disk('guest')->delete($guest->picture_path);
+        Storage::disk('guest')->delete($guest->picture_name);
         Guest::destroy($id);
 
         return redirect('/guest');
@@ -72,7 +72,7 @@ class GuestsController extends Controller
         $guest = new Guest();
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
-        $guest->picture_path = Storage::disk('guest')->putFile('', $img);
+        $guest->picture_name = Storage::disk('guest')->putFile('', $img);
         $guest->save();
 
         return redirect('/guest');

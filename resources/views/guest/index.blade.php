@@ -53,14 +53,14 @@
                 @foreach ($guests as $guest)
                 <div class="card-body">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                       <h3>{{$guest->fullname}}</h3>
                       <p>{{$guest->description}}</p>
                       <a href="{{ route('guest.delete', ['id'=>$guest->id]) }}">Supprimer</a>
                     </div>
 
-                    <div class="col-md-2">
-                      <img src="{{ asset('/storage/pictures/guest/'.$guest->picture_path) }}" style="max-height:80px"></img>
+                    <div class="col-md-4 text-md-right">
+                      <img src="{{ url('/guest/'.$guest->id.'/p') }}" style="max-height:80px"></img>
                     </div>
                 </div>
               </div>

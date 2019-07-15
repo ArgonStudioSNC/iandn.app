@@ -53,15 +53,15 @@
                 @foreach ($posts as $post)
                 <div class="card-body">
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                       <p>{{ $post->updated_at }}</p>
                       <h3>{{$post->username}}</h3>
                       <p>{{$post->comment}}</p>
                       <a href="{{ route('instagram.delete', ['id'=>$post->id]) }}">Supprimer</a>
                     </div>
 
-                    <div class="col-md-2">
-                      <img src="{{ asset('/storage/pictures/instagram/thumb/'.$post->picture_id) }}" style="max-height:80px"></img>
+                    <div class="col-md-4 text-md-right">
+                      <img src="{{ url('/instagram/'.$post->id.'/p/thumb') }}" style="max-height:80px"></img>
                     </div>
                 </div>
               </div>

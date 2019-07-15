@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Jenssegers\Agent\AgentServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -190,8 +190,7 @@ return [
     */
 
     'aliases' => [
-
-        'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

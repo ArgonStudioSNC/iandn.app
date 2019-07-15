@@ -18,7 +18,7 @@
 
                     <ul>
                       <li><a href="{{ url('/guest')}}">Gestion des invités</a></li>
-                      <li><a href="{{ url('/picture')}}">Flux de photos</a></li>
+                      <li><a href="{{ url('/instagram')}}">Instagram</a></li>
                   </ul>
                 </div>
             </div>

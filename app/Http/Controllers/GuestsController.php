@@ -28,25 +28,26 @@ class GuestsController extends Controller
     public function list()
     {
         $guests = Guest::orderby('created_at', 'desc')->get();
-        return view('guestslist', ['guests' => $guests]);
+        return view('guest.index', ['guests' => $guests]);
     }
 
     public function random()
     {
-        return Guest::inRandomOrder()->get()->first()->toJson();
+        return response(Guest::inRandomOrder()->get()->first()->toJson())
+          ->header('Content-Type', 'application/json');
     }
 
     public function picture($id)
     {
         $guest = Guest::find($id);
-        return response(Storage::disk('public')->get($guest->picture_path))
+        return response(Storage::disk('guest')->get($guest->picture_path))
           ->header('Content-Type', 'image');
     }
 
     public function destroy($id)
     {
         $guest = Guest::find($id);
-        Storage::disk('public')->delete($guest->picture_path);
+        Storage::disk('guest')->delete($guest->picture_path);
         Guest::destroy($id);
 
         return redirect('/guest');
@@ -71,7 +72,7 @@ class GuestsController extends Controller
         $guest = new Guest();
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
-        $guest->picture_path = Storage::disk('public')->putFile('/pictures/guest', $img);
+        $guest->picture_path = Storage::disk('guest')->putFile('', $img);
         $guest->save();
 
         return redirect('/guest');

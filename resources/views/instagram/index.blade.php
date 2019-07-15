@@ -1,31 +1,31 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Guestslist')
+@section('pageTitle', 'Instagram')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Ajouter un invité') }}</div>
+                <div class="card-header">{{ __('Ajouter un post') }}</div>
 
                 <div class="card-body">
-                  <form method="POST" action="{{ route('guest.add') }}" enctype="multipart/form-data">
+                  <form method="POST" action="{{ route('instagram.add') }}" enctype="multipart/form-data">
                       @csrf
 
                       <div class="form-group row">
-                          <label for="fullname" class="col-md-4 col-form-label text-md-right">{{ __('Nom complet') }}</label>
+                          <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Utilisateur') }}</label>
 
                           <div class="col-md-6">
-                              <input id="fullname" type="text" class="form-control" name="fullname">
+                              <input id="username" type="text" class="form-control" name="username">
                           </div>
                       </div>
 
                       <div class="form-group row">
-                          <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                          <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Commentaire') }}</label>
 
                           <div class="col-md-6">
-                            <textarea id="description" type="text" class="form-control" name="description"></textarea>
+                            <textarea id="comment" type="text" class="form-control" name="comment"></textarea>
                           </div>
                       </div>
 
@@ -40,7 +40,7 @@
                       <div class="form-group row mb-0">
                           <div class="col-md-6 offset-md-4">
                               <button type="submit" class="btn btn-primary">
-                                  {{ __('Ajouter') }}
+                                  {{ __('Poster') }}
                               </button>
                           </div>
                       </div>
@@ -49,18 +49,19 @@
             </div>
 
             <div class="card">
-              <div class="card-header">{{ __('Liste des invités') }}</div>
-                @foreach ($guests as $guest)
+              <div class="card-header">{{ __('Liste des posts') }}</div>
+                @foreach ($posts as $post)
                 <div class="card-body">
                 <div class="row">
                     <div class="col-md-10">
-                      <h3>{{$guest->fullname}}</h3>
-                      <p>{{$guest->description}}</p>
-                      <a href="{{ route('guest.delete', ['id'=>$guest->id]) }}">Supprimer</a>
+                      <p>{{ $post->updated_at }}</p>
+                      <h3>{{$post->username}}</h3>
+                      <p>{{$post->comment}}</p>
+                      <a href="{{ route('instagram.delete', ['id'=>$post->id]) }}">Supprimer</a>
                     </div>
 
                     <div class="col-md-2">
-                      <img src="{{ asset('/storage/'.$guest->picture_path) }}" style="max-height:80px"></img>
+                      <img src="{{ asset('/storage/pictures/instagram/thumb/'.$post->picture_id) }}" style="max-height:80px"></img>
                     </div>
                 </div>
               </div>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Guest;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class GuestsController extends Controller
 {
@@ -67,12 +68,15 @@ class GuestsController extends Controller
           'picture' => 'required|image',
         ]);
 
-        $img = $request->file('picture');
+        $img = Image::make($request->file('picture'))->encode('jpg');
+        $hash = md5($img);
+
+        Storage::disk('guest')->put($hash.'.jpg', $img->__tostring());
 
         $guest = new Guest();
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
-        $guest->picture_name = Storage::disk('guest')->putFile('', $img);
+        $guest->picture_name = $hash.'.jpg';
         $guest->save();
 
         return redirect('/guest');

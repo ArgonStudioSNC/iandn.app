@@ -68,9 +68,12 @@ class GuestsController extends Controller
           'picture' => 'required|image',
         ]);
 
-        $img = Image::make($request->file('picture'))->encode('jpg');
-        $hash = md5($img);
+        $img = Image::make($request->file('picture'))->resize(640, null, function ($constraint) {
+          $constraint->aspectRatio();
+          $constraint->upsize();
+        })->encode('jpg');
 
+        $hash = md5($img);
         Storage::disk('guest')->put($hash.'.jpg', $img->__tostring());
 
         $guest = new Guest();

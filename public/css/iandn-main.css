@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Quattrocento-Regular;
+    src: url('/fonts/Quattrocento-Regular.tff');
+}
+@font-face {
+    font-family: Quattrocento-Bold;
+    src: url('/fonts/Quattrocento-Bold.tff');
+    font-weight: bold;
+}
+
+body, html {
+  height: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 10px !important;
+}
+
+.fullscreen {
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.post {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: inline-block;
+  max-width: 25%;
+  background-color: #fff;
+  font-family: "Quattrocento-Regular";
+  font-size: 15px;
+  color: #323232;
+  text-align: left;
+  border-radius: 4px;
+  padding: 15px 15px;
+  z-index: 10;
+}
+
+.post.username {
+  font-family: "Quattrocento-Bold";
+  color: #4B5D40;
+}

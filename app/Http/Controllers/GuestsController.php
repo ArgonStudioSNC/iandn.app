@@ -28,13 +28,13 @@ class GuestsController extends Controller
      */
     public function list()
     {
-        $guests = Guest::orderby('created_at', 'desc')->get();
+        $guests = Guest::orderby('id', 'asc')->get();
         return view('guest.index', ['guests' => $guests]);
     }
 
-    public function random()
+    public function data()
     {
-        return response(Guest::inRandomOrder()->get()->first()->toJson())
+        return response(Guest::orderby('created_at', 'desc')->get()->toJson())
           ->header('Content-Type', 'application/json');
     }
 

@@ -18,7 +18,8 @@
 
                     <ul>
                       <li><a href="{{ url('/guest')}}">Gestion des invités</a></li>
-                      <li><a href="{{ url('/instagram')}}">Instagram</a></li>
+                      <li><a href="{{ url('/paparazzi')}}">Paparazzi</a></li>
+                      <li><a href="{{ url('/paparazzi/flux')}}">Paparazzi Realtime Flux</a></li>
                   </ul>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Instagram')
+@section('pageTitle', 'Paparazzi')
 
 @section('content')
 <div class="container">
@@ -10,7 +10,7 @@
                 <div class="card-header">{{ __('Ajouter un post') }}</div>
 
                 <div class="card-body">
-                  <form method="POST" action="{{ route('instagram.add') }}" enctype="multipart/form-data">
+                  <form method="POST" action="{{ route('paparazzi.add') }}" enctype="multipart/form-data">
                       @csrf
 
                       <div class="form-group row">
@@ -57,11 +57,11 @@
                       <p>{{ $post->updated_at }}</p>
                       <h3>{{$post->username}}</h3>
                       <p>{{$post->comment}}</p>
-                      <a href="{{ route('instagram.delete', ['id'=>$post->id]) }}">Supprimer</a>
+                      <a href="{{ route('paparazzi.delete', ['id'=>$post->id]) }}">Supprimer</a>
                     </div>
 
                     <div class="col-md-4 text-md-right">
-                      <img src="{{ url('/instagram/'.$post->id.'/p/thumb') }}" style="max-height:80px"></img>
+                      <img src="{{ url('/paparazzi/'.$post->id.'/p/thumb') }}" style="max-height:80px"></img>
                     </div>
                 </div>
               </div>

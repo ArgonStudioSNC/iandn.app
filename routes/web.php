@@ -21,14 +21,14 @@ Auth::routes(['register' => false]);
 Route::get('/admin', 'AdminController@dashboard')->name('dashboard');
 
 Route::get('/guest', 'GuestsController@list')->name('guest');
-Route::get('/guest/random', 'GuestsController@random')->name('guest.random');
+Route::get('/guest/d', 'GuestsController@data')->name('guest.data');
 Route::get('/guest/{id}/p', 'GuestsController@picture')->name('guest.picture');
 Route::get('/guest/{id}/delete}', 'GuestsController@destroy')->name('guest.delete');
 Route::post('/guest/add', 'GuestsController@add')->name('guest.add');
 
-Route::get('/instagram', 'InstagramController@index')->name('instagram.index');
-Route::get('/instagram/flux', 'InstagramController@flux')->name('instagram.flux');
-Route::get('/instagram/d', 'InstagramController@data')->name('instagram.data');
-Route::get('/instagram/{id}/p/{res?}', 'InstagramController@picture')->name('instagram.picture');
-Route::get('/instagram/{id}/delete', 'InstagramController@destroy')->name('instagram.delete');
-Route::post('/instagram/add', 'InstagramController@add')->name('instagram.add');
+Route::get('/paparazzi', 'PaparazziController@index')->name('paparazzi.index');
+Route::get('/paparazzi/flux', 'PaparazziController@flux')->name('paparazzi.flux');
+Route::get('/paparazzi/d', 'PaparazziController@data')->name('paparazzi.data');
+Route::get('/paparazzi/{id}/p/{res?}', 'PaparazziController@picture')->name('paparazzi.picture');
+Route::get('/paparazzi/{id}/delete', 'PaparazziController@destroy')->name('paparazzi.delete');
+Route::post('/paparazzi/add', 'PaparazziController@add')->name('paparazzi.add');

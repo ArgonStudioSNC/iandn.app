@@ -10,6 +10,7 @@
     <title>@yield('pageTitle') - I&N - Isabel et Nathan se marient</title>
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -18,12 +19,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/iandn-main.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
 </head>
-<body>
-    @yield('body')
-</body>
+
+@yield('body')
+
 </html>

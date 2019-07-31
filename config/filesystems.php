@@ -62,10 +62,10 @@ return [
             'visibility' => 'public',
         ],
 
-        'instagram' => [
+        'paparazzi' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/pictures/instagram'),
-            'url' => env('APP_URL').'/storage/pictures/instagram',
+            'root' => storage_path('app/public/pictures/paparazzi'),
+            'url' => env('APP_URL').'/storage/pictures/paparazzi',
             'visibility' => 'public',
         ],
 

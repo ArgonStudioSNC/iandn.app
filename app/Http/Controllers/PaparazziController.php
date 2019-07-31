@@ -43,7 +43,9 @@ class PaparazziController extends Controller
     // look for a new post (priority == 0)
     if ($post->priority == 0) {
       $maxID = Post::where('priority', '>', 0)->orderby('priority')->first()->value('priority');
-      $post->update(['priority' => $maxID-1]);
+      if ($maxID =! 0) {
+        $post->update(['priority' => $maxID-1]);
+      }
     }
     $post->increment('priority');
 

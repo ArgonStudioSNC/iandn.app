@@ -41,9 +41,9 @@ class PaparazziController extends Controller
   {
     $post = Post::orderby('priority')->oldest()->first();
     // look for a new post (priority == 0)
-    if ($post->value('priority') == 0) {
+    if ($post->priority == 0) {
       $minPriorityPost = Post::where('priority', '>', 0)->orderby('priority')->first();
-      if ($minPriorityPost) $post->update(['priority' => $minPriorityPost->value('priority') - 1]);
+      if ($minPriorityPost != null) $post->update(['priority' => $minPriorityPost->priority - 1]);
     }
     $post->increment('priority');
 

@@ -34,7 +34,7 @@ class GuestsController extends Controller
 
     public function data()
     {
-        return response(Guest::orderby('created_at', 'desc')->get()->toJson())
+        return response(Guest::orderby('id', 'ASC')->get()->toJson())
           ->header('Content-Type', 'application/json');
     }
 

@@ -32,3 +32,7 @@ Route::get('/paparazzi/d', 'PaparazziController@data')->name('paparazzi.data');
 Route::get('/paparazzi/{id}/p/{res?}', 'PaparazziController@picture')->name('paparazzi.picture');
 Route::get('/paparazzi/{id}/delete', 'PaparazziController@destroy')->name('paparazzi.delete');
 Route::post('/paparazzi/add', 'PaparazziController@add')->name('paparazzi.add');
+
+Route::get('/quizz/d', 'QuizzController@data')->name('quizz.data');
+Route::get('/quizz/enable', 'QuizzController@enable')->name('quizz.enable');
+Route::get('/quizz/desable', 'QuizzController@desable')->name('quizz.desable');

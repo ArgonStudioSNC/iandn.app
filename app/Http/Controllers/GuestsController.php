@@ -18,7 +18,7 @@ class GuestsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['random', 'picture',]]);
+        $this->middleware('auth', ['except' => ['data', 'picture',]]);
     }
 
     /**

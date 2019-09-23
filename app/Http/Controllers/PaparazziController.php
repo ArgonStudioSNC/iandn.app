@@ -80,8 +80,8 @@ class PaparazziController extends Controller
     ]);
 
     $img = $request->file('picture');
-    $img_full = Image::make($img)->encode('jpg');
-    $img_thumb = Image::make($img)->resize(640, null, function ($constraint) {
+    $img_full = Image::make($img)->orientate()->encode('jpg');
+    $img_thumb = Image::make($img)->orientate()->resize(640, null, function ($constraint) {
       $constraint->aspectRatio();
       $constraint->upsize();
     })->encode('jpg');

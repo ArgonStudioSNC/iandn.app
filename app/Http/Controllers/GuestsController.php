@@ -28,13 +28,13 @@ class GuestsController extends Controller
      */
     public function list()
     {
-        $guests = Guest::orderby('id', 'asc')->get();
+        $guests = Guest::orderby('id', 'ASC')->get();
         return view('guest.index', ['guests' => $guests]);
     }
 
     public function data()
     {
-        return response(Guest::orderby('id', 'ASC')->get()->toJson())
+        return response(Guest::orderby('randomizer', 'ASC')->get()->toJson())
           ->header('Content-Type', 'application/json');
     }
 
@@ -80,7 +80,16 @@ class GuestsController extends Controller
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
         $guest->picture_name = $hash.'.jpg';
-        $guest->save();
+        while(true) {
+            try{
+                $guest->randomizer = rand();
+                $guest->save();
+                break;
+            }
+            catch(Exception $e){
+                // Could not save, try again
+            }
+        }
 
         return redirect('/guest');
     }

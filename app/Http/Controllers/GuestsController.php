@@ -34,7 +34,7 @@ class GuestsController extends Controller
 
     public function data()
     {
-        return response(Guest::orderby('randomizer', 'ASC')->get()->toJson())
+        return response(Guest::orderby('id', 'ASC')->get()->toJson())
           ->header('Content-Type', 'application/json');
     }
 
@@ -80,16 +80,7 @@ class GuestsController extends Controller
         $guest->fullname = $request->fullname;
         $guest->description = $request->description;
         $guest->picture_name = $hash.'.jpg';
-        while(true) {
-            try{
-                $guest->randomizer = rand();
-                $guest->save();
-                break;
-            }
-            catch(Exception $e){
-                // Could not save, try again
-            }
-        }
+        $guest->save();
 
         return redirect('/guest');
     }

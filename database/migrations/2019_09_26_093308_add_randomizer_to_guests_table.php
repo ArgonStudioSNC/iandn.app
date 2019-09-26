@@ -17,20 +17,17 @@ class AddRandomizerToGuestsTable extends Migration
         Schema::table('guests', function (Blueprint $table) {
             $table->unsignedInteger('randomizer')->unique();
         });
-        $existing_guests = Guest::where('randomizer', 0)->get();
+
+        $existing_guests = Guest::get();
         foreach($existing_guests as $guest)
         {
-            while(true) {
-                try{
-                    $guest->randomizer = rand();
-                    $guest->save();
-                    break;
-                }
-                catch(Exception $e){
-                    // Could not save, try again
-                }
-            }
+            $guest->randomizer = rand();
+            $guest->save();
         }
+        
+        Schema::table('guests', function (Blueprint $table) {
+            $table->unique('randomizer');
+        });
     }
 
     /**

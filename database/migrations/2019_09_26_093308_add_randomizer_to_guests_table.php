@@ -17,7 +17,7 @@ class AddRandomizerToGuestsTable extends Migration
         Schema::table('guests', function (Blueprint $table) {
             $table->unsignedInteger('randomizer')->unique();
         });
-        $existing_guests = Guest::where('randomizer', '')->get();
+        $existing_guests = Guest::where('randomizer', 0)->get();
         foreach($existing_guests as $guest)
         {
             while(true) {

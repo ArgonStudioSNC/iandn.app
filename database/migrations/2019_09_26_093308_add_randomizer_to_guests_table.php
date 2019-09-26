@@ -15,7 +15,7 @@ class AddRandomizerToGuestsTable extends Migration
     public function up()
     {
         Schema::table('guests', function (Blueprint $table) {
-            $table->unsignedInteger('randomizer')->unique();
+            $table->unsignedInteger('randomizer');
         });
 
         $existing_guests = Guest::get();
@@ -24,7 +24,7 @@ class AddRandomizerToGuestsTable extends Migration
             $guest->randomizer = rand();
             $guest->save();
         }
-        
+
         Schema::table('guests', function (Blueprint $table) {
             $table->unique('randomizer');
         });

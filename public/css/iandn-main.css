@@ -1,57 +1,74 @@
-@font-face {
-    font-family: Quattrocento-Regular;
-    src: url('/fonts/Quattrocento-Regular.tff');
-}
-@font-face {
-    font-family: Quattrocento-Bold;
-    src: url('/fonts/Quattrocento-Bold.tff');
-    font-weight: bold;
-}
-
 body, html {
-  height: 100%;
+    height: 100%;
 }
 
 .container-fluid {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .nopadding {
-  padding: 0 !important;
-  margin: 10px !important;
+    padding: 0 !important;
+    margin: 10px !important;
 }
 
-.fullscreen {
+.background {
+    background-color: rgba(0,0,0,0.75);
+    background-image: url('/images/background-flowers.png');
+    background-blend-mode: darken;
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.contain {
-  object-fit: contain;
+.vertical-center {
+    display: flex;
+    align-items: center;
 }
 
-.post {
-  position: absolute;
-  top: 7px;
-  right: 7px;
-  display: inline-block;
-  max-width: 25%;
-  background-color: #fff;
-  font-family: "Quattrocento-Regular";
-  font-size: 15px;
-  color: #323232;
-  text-align: left;
-  border-radius: 4px;
-  padding: 15px 15px;
-  z-index: 10;
+#post {
+    font-family: 'Quattrocento', serif;
+    font-size: 16px;
+    font-weight: regular;
 }
 
-.post.username {
-  font-family: "Quattrocento-Bold";
-  color: #4B5D40;
+#post .username {
+    color: #4B5D40;
+    font-weight: bold;
 }
 
-#fullscreen-img-container {
+#post .comment {
+    color: #323232;
 }
 
-#fullscreen-img {
+#post .timestamp {
+    font-size: 15px;
+    color: rgb(50,50,50,0.6);
+}
+
+#picture {
+    padding: 0;
+}
+
+#picture img {
+    max-height: 100vh;
+}
+
+#picture img {
+    width: 100%;
+    height: auto;
+}
+
+#meta {
+    background-color: white;
+}
+
+#meta div {
+    margin: 10px 0 10px 0;
 }

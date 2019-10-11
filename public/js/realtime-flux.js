@@ -5,12 +5,14 @@ $(document).ready(function(){
           type:'GET',
           dataType:'json',
           success:function(response){
-            console.log(response.post.priority);
             var url = "/paparazzi/" + response.post.id + "/p/full";
-             $('#fullscreen-img').attr('src', url);
+             $('#picture img').attr('src', url);
+             $('#post .username').html(response.post.username);
+             $('#post .comment').html(response.post.comment);
+             $('#post .timestamp').html(response.post.created_at);
           },error:function(err){
 
           }
        })
-    }, 5000);
+   }, 8000);
 });

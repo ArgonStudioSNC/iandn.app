@@ -8,7 +8,7 @@
     <div class="position-fixed h-100 w-100 vertical-center">
         <div id="post" class="container">
             <div class="row">
-                <div id="picture" class="col-9">
+                <div id="picture" align='right' class="col-9">
                     <img src="{{ url('/paparazzi/'.$post->id.'/p/full') }}"></img>
                 </div>
                 <div id="meta" class="col-3">

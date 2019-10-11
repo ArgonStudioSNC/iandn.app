@@ -57,12 +57,13 @@ body, html {
 }
 
 #picture img {
-    max-height: 100vh;
 }
 
 #picture img {
-    width: 100%;
+    width: auto;
     height: auto;
+    max-height: 100vh;
+    max-width: 100%;
 }
 
 #meta {

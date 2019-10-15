@@ -1,4 +1,5 @@
 *
 !guest/
 !paparazzi/
+!photo/
 !.gitignore

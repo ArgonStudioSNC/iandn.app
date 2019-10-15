@@ -18,29 +18,34 @@ class AlbumsTableSeeder extends Seeder
                 'label'    => 'Cérémonie civile',
                 'souper' => false,
                 'cover_name' => 'default_cover.JPG'
+                'zip_name' => 'iejeAdcg6FShpot7azkLtMydABxB.zip'
             ),
             array(
                 'label'    => 'Groupes',
                 'souper' => false,
                 'cover_name' => 'default_cover.JPG'
+                'zip_name' => 'rn35XTPksyn468t9ArN9eEgNPRnK.zip'
             ),
 
             array(
                 'label'    => 'Apéro',
                 'souper' => false,
                 'cover_name' => 'default_cover.JPG'
+                'zip_name' => 'Q48eYCo5XgBChgtpxgFRMqn75sRx.zip'
             ),
 
             array(
                 'label'    => 'Soirée',
                 'souper' => true,
                 'cover_name' => 'default_cover.JPG'
+                'zip_name' => ' 	qePd9E3iKCPmTsf6hQeA6eHH6oLN.zip'
             ),
 
             array(
                 'label'    => 'Party',
                 'souper' => true,
                 'cover_name' => 'default_cover.JPG'
+                'zip_name' => 'erMST346rY5qHSXJxhc4YNeKK9nQ.zip'
             ),
         ));
     }

@@ -732,10 +732,6 @@ class PhotosTableSeeder extends Seeder
             ),
             array(
                 'album_id' => 3,
-                'picture_name' => '8a8159adcb3d6b415217b43183818adc.jpg',
-            ),
-            array(
-                'album_id' => 3,
                 'picture_name' => '36e866db454ac13cbc887a257cb17c97.jpg',
             ),
             array(

@@ -40,3 +40,4 @@ Route::get('/quizz/desable', 'QuizzController@desable')->name('quizz.desable');
 Route::get('/photo/album/d', 'PhotosController@albumdata')->name('photo.album.data');
 Route::get('/photo/album/{id}/p', 'PhotosController@cover')->name('photo.album.cover');
 Route::get('/photo/album/{id}/zip', 'PhotosController@zip')->name('photo.album.zip');
+Route::get('/photo/{id}/p', 'PhotosController@picture')->name('photo.picture');

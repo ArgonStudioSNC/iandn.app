@@ -42,4 +42,16 @@ class PhotosController extends Controller
         $album = Album::findOrFail($id);
         return Storage::disk('photo')->download('zip/'.$album->zip_name);
     }
+
+    /**
+    * Display the specified resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function picture($id)
+    {
+        $photo = Photo::findOrFail($id);
+        return response(Storage::disk('photo')->get($photo->picture_name))
+        ->header('Content-Type', 'image');
+    }
 }

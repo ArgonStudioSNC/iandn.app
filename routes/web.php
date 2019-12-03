@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('gettheapp');
 });
 
+// route to redirect to the google drive pictures folder
+Route::get('/photos', function () {
+    return redirect('https://drive.google.com/drive/folders/1R_ylS1JvF3lAIoBmRH5dXNNtTJvdethY');
+});
+
 Auth::routes(['register' => false]);
 
 Route::get('/admin', 'AdminController@dashboard')->name('dashboard');
